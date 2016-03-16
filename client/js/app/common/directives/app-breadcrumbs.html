@@ -1,0 +1,7 @@
+<section class="app-breadcrumbs">
+    <ol class="breadcrumb">
+        <li ng-repeat="link in links">
+            <a ui-sref="{{link.state}}" ng-show="link.visible">{{link.label}}</a>
+        </li>
+    </ol>
+</section>

@@ -1,0 +1,18 @@
+{
+    "globals": {
+        "angular": false,
+        "_":false,
+        "$":false,
+        "jasmine":false,
+        "describe":false,
+        "it":false,
+        "expect":false,
+        "beforeEach":false,
+        "afterEach":false
+    },
+    "-W097": false,
+    "-W030": false,
+    "browser":true,
+    "devel":true,
+    "asi":true
+}

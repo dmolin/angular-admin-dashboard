@@ -1,0 +1,83 @@
+<div class="project-editing">
+
+<div ng-show="data.isLoading" class="padded-NS">
+    <div layout="row" layout-sm="column" layout-align="space-around">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+</div>
+
+<div ng-show="data.noResult">
+    <section class="billboard">
+        <p class="md-headline important">NO PROJECT FOUND WITH ID {{data.id}}</p>
+        <p class="md-subhead question">You can get back to the list of the projects <a ui-sref="projects">here</a></p>
+    </section>
+</div>
+
+
+<div ng-show="!data.isLoading && data.project" >
+    <a ui-sref="projects" class="menu-item-link menu-goback">
+        <md-button class="md-primary md-raised" aria-label="Go back"><span>Go back</span></md-button>
+    </a>
+    <section class="clearfix">
+        <div layout="row">
+            <div layout="column" flex>
+                <H1 class="md-headline section-head important">Edit Project: {{data.project.projectName}}</H1>
+                <p class="md-subhead">Any change you make will immediately be saved into the project</p>
+            </div>
+
+            <md-fab-speed-dial md-direction="down" class="md-fling fab-actions" md-open="false">
+                <md-fab-trigger>
+                    <md-button aria-label="menu" class="md-fab md-warn">
+                        <i class="fa fa-bars"></i>
+                    </md-button>
+                </md-fab-trigger>
+                <md-fab-actions>
+                    <md-button class="md-fab md-raised md-mini" ng-click="" aria-label="Create Project">
+                        <i class="fa fa-plus"></i><md-tooltip>Create a new project</md-tooltip>
+                    </md-button>
+                    <md-button class="md-fab md-raised md-mini" aria-label="Duplicate Project">
+                        <i class="fa fa-files-o"></i><md-tooltip>Clone this project into a new one</md-tooltip>
+                    </md-button>
+                    <md-button class="md-fab md-raised md-mini" aria-label="Archive Project">
+                        <i class="fa fa-folder"></i><md-tooltip>Archive this project</md-tooltip>
+                    </md-button>
+                    <md-button class="md-fab md-raised md-mini" aria-label="Delete Project" ng-click="delete($event, it)">
+                        <i class="fa fa-trash"></i><md-tooltip>Delete this project</md-tooltip>
+                    </md-button>
+                </md-fab-actions>
+            </md-fab-speed-dial>
+        </div>
+    </section>
+
+    <form name="projectForm" class="mgn-NS" novalidate ng-model="data.project" ng-model-options="{ updateOn: 'blur'}">
+        <div layout="row" flex>
+            <md-input-container flex="50" class="padded-E">
+                <label>project name</label>
+                <input required name="projectName" ng-model="data.project.projectName" autofocus>
+            </md-input-container>
+            <md-input-container flex class="padded-W">
+                <label>Client name</label>
+                <input name="clientName" ng-model="data.project.clientName" >
+            </md-input-container>
+        </div>
+
+        <h1 class="md-title section-head" app-foldable foldable-target="[data-id=attachment-foldable]">
+            Attachments for this project
+        </h1>
+        <div data-id="attachment-foldable" layout="column">
+            <div layout="row">
+                <app-file-url-upload model="data.contract" flex
+                                    name="contract"
+                                    url-model="data.project.contractUrl"
+                                    accept="application/pdf"
+                                    on-remove="removeAttachment($event, 'contract')"
+                                    label="Contract PDF (File Upload or Url)"
+                                    error-message="Please ensure that the URL references a valid document"></app-file-url-upload>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+</div>

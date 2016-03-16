@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Admin</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" type="text/css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Dosis:700,800" rel="stylesheet" type="text/css">
+        <link href="css/main.css" rel="stylesheet">
+
+    </head>
+
+    <body ng-app="app" class="theme-dark">
+        <script>
+            //server side generated env with app-wide global state, in order to avoid unnecessary server calls
+            var __SERVERENV = { env: [[= JSON.stringify(model.env) ]]}
+        </script>
+        <div class="sticky">
+            <app-toolbar></app-toolbar>
+            <app-breadcrumbs></app-breadcrumbs>
+        </div>
+
+        <md-content flex>
+        <div id="view" class="page-width padded-NS" ui-view></div>
+        </md-content>
+    </body>
+
+    [[= model.scripts ]]
+</html>

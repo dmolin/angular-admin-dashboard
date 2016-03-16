@@ -1,0 +1,226 @@
+h1.md-title.section-head {
+    background-color: #eee;
+    padding: 0.2em 0;
+}
+
+[name='projectForm'] {
+    margin-bottom: 3em;
+}
+
+.projects-list-container {
+    margin-bottom: 50px;
+}
+
+.projects-list {
+}
+
+.projects-list-toolbar {
+    align-items: center;
+}
+
+.projects-list-title {
+    margin: 0;
+}
+
+.ui-grid-cell {
+    border-right-color: rgb(212, 212, 212);
+}
+
+.project-item {
+    background-color: rgb(251,251,251);
+    border: 1px solid rgb(212,212,212);
+    padding: 0.5em;
+    margin: 0.2em 0;
+}
+
+.add-project {
+    position: fixed;
+    bottom: 0;
+    right: 10%;
+}
+
+.project-item {
+    align-items: center;
+}
+
+.project-actions {
+    flex: 0 0 35%;
+}
+
+.project-action i.fa {
+    transition: 0.15s all linear;
+}
+
+.project-action:hover i.fa {
+    font-size: 1.4em;
+}
+
+.project-name {
+    flex: 0 0 45%;
+}
+
+.project-headlines {
+    margin: 0.5em 0 1em;
+}
+
+.project-sponsor-color {
+    position: relative;
+}
+
+.project-spaced-text {
+    margin-left: 3em;
+}
+
+
+.color-picker-wrapper__foreground .app-colorpicker {
+    background-color: #333;
+}
+
+.project-binary-items .project-binary-item:first-child {
+    padding-left: 0;
+}
+
+.project-binary-items .project-binary-item:last-child {
+    padding-right:0;
+}
+
+.project-binary {
+    margin: 0em 0 2em;
+}
+
+.project-binary-item {
+    padding: 0 1.25em;
+    position: relative;
+}
+
+.binary-attach-dropzone {
+    background-color: #eee;
+    border: 2px dashed #aaa;
+    align-items: center;
+    height: 100px;
+    position: relative;
+    padding: 1em;
+    cursor: pointer;
+    outline: none;
+}
+
+.binary-attach-dropzone:hover {
+    background-color: #E3F2FD;
+}
+
+.binary-attach__dropped {
+    border: 2px solid #aaa;
+}
+
+.attachment-loading {
+    position: absolute;
+    left: 50%;
+    margin-left: -25px;
+}
+
+.attachment-stats {
+    position: absolute;
+    bottom: 0.5%;
+    left: 0.5%;
+    width: 99%;
+    background-color: rgba(0,0,0, 0.7);
+    color: #fff;
+    padding: 0.1em 0.3em;
+    font-size: 1.1em;
+    align-items: center;
+}
+
+.binary-attach-preview > img {
+    max-width: 100%;
+    max-height: 250px;
+}
+
+.binary-attach-dropzone-remove,
+.binary-attach-dropzone-remove:visited,
+.binary-attach-dropzone-remove:active {
+    padding: 0.2em 0.5em;
+    color: #fff;
+}
+
+.binary-attach-dropzone-remove:hover {
+    color: #fff;
+    cursor: pointer;
+}
+
+.project-binary-background {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+}
+
+.project-layout-colors {
+    height: 81px;
+}
+
+.project-layout-colors > *{
+    width: 30%;
+    margin: 0 2.5%;
+}
+
+.project-layout-colors > *:first-child {
+    margin-left: 0;
+}
+
+.project-layout-colors > *:last-child {
+    margin-right: 0;
+}
+
+.project-binary ~ .project-layout {
+    padding-left: 2em;
+}
+
+.project-layout label {
+    margin: 0;
+}
+
+
+.layout-preview {
+    display: flex;
+    flex-direction: row;
+    flex-grow: inherit;
+}
+
+
+.project-colors-wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.project-colors-wrapper > * {
+    padding: 0 1.25em;
+}
+
+.project-colors-wrapper > *:first-child {
+    padding-left: 0;
+}
+
+.project-colors-wrapper > *:last-child {
+    padding-right:0;
+}
+
+
+.video-options {
+    margin-top: 9px;
+}
+
+@media screen and (min-width: 1125px) {
+    .project-name {
+        flex: 0 0 40%;
+    }
+
+    .project-actions {
+        flex: 0 0 40%;
+    }
+}
+
+@media screen and (min-width: 2035px) {
+    .add-project {
+        right: 16%;
+    }
+
+}

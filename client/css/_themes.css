@@ -1,0 +1,15 @@
+.theme-dark .main-toolbar {
+    background-color: #5C6BC0 !important;
+    }
+
+    .theme-dark .main-toolbar a {
+        color: #eee;
+    }
+
+    .theme-dark .main-toolbar button md-icon {
+        color: #eee;
+    }
+
+    .theme-dark .main-toolbar .menu-item-title {
+        color: #eee;
+    }

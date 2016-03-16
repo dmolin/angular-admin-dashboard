@@ -1,0 +1,28 @@
+<div class="projects-list" layout="column">
+    <div ng-repeat="it in data" class="project-item" layout="row">
+        <div class="project-name md-subhead" >{{it.projectName}}</div>
+        <div class="project-date" flex="20">{{it.modifiedOn | date:'medium'}}</div>
+        <div class="project-actions">
+            <ul class="project-actions-list" layout="row" layout-align="end">
+                <li class="project-action">
+                    <md-button class="md-icon-button md-primary" aria-label="Edit Project" ng-click="edit(it)">
+                        <i class="fa fa-pencil"></i>
+                        <md-tooltip>Edit this project</md-tooltip>
+                    </md-button>
+                </li>
+                <li class="project-action"><md-button class="md-icon-button md-primary" aria-label="Duplicate Project">
+                    <i class="fa fa-files-o"></i><md-tooltip>Clone this project into a new one</md-tooltip></md-button>
+                </li>
+
+                <li class="project-action"><md-button class="md-icon-button md-primary" aria-label="Archive Project">
+                    <i class="fa fa-folder"></i><md-tooltip>Archive this project</md-tooltip></md-button>
+                </li>
+                <li class="project-action">
+                    <md-button class="md-icon-button md-primary" aria-label="Delete Project" ng-click="delete($event, it)">
+                        <i class="fa fa-trash"></i><md-tooltip>Delete this project</md-tooltip>
+                    </md-button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

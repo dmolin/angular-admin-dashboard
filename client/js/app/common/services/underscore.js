@@ -1,0 +1,1 @@
+angular.module('underscore', []).value('underscore', _);

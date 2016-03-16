@@ -1,0 +1,55 @@
+<div
+    class="app-file-url-upload"
+    ng-class="{'app-file-url-upload__uploaded':model.url}"
+>
+  <md-tooltip ng-if="model.url && hasTip()" md-direction="top" md-autohide="true">{{tip}}</md-tooltip>
+  <md-progress-circular md-mode="indeterminate" class="app-file-url-upload__loading" ng-show="loading"></md-progress-circular>
+
+  <div layout="row" layout-align="start start">
+    <div layout="row" layout-align="start center" flex="15" class="app-file-upload--controls">
+      <md-button
+          type="button"
+          aria-label="Attach file"
+          class="md-primary md-raised"
+          style="{{model.url ? 'background-color:#1565C0' : ''}}"
+          ngf-select ngf-multiple="false"
+          ng-model="model"
+          ng-disabled="loading"
+          accept="{{accept}}" >
+        <i class="fa fa-desktop"></i>
+        <md-tooltip>Click here to upload a file from your computer</md-tooltip>
+      </md-button>
+
+      <md-button type="button" aria-label="Remove file" class="md-icon-button md-icon-button__fit md-icon-button__delete" ng-show="refModel.url" ng-click="onAttachmentRemove($event)">
+        <i class="fa fa-trash"></i>
+      </md-button>
+
+      <i ng-show="urlModel" class="fa fa-globe app-md-button-like"></i>
+      <i ng-show="isImageVisible()" class="fa fa-eye" style="padding: 0 0.3em"
+         popover-template="popoverTemplate"
+         popover-trigger="mouseenter"
+         popover-placement="right"
+         popover-append-to-body="false"></i>
+    </div>
+
+    <div flex  ng-hide="refModel.url">
+      <md-input-container flex >
+        <label >{{label}}</label>
+        <input name="{{name}}Url" ng-model="urlModel" ng-change="validateUrl(urlModel)">
+      </md-input-container>
+      <div ng-hide="refModel.url || !invalidUrl" class="sub-input-notice">
+        <i class="fa fa-exclamation"></i>
+        <span>{{errorMessage || "This URL doesn't seem to reference a resource of the correct type"}}</span>
+      </div>
+    </div>
+
+    <md-input-container flex ng-show="refModel.url" >
+      <label>{{label}}</label>
+      <input name="{{name}}" ng-model="refModel.url" readonly >
+
+      <div class="attachment-stats" layout="row">
+        <span>size: {{refModel.size | appFileSize}}</span>
+      </div>
+    </md-input-container>
+  </div>
+</div>

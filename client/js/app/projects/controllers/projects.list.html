@@ -1,0 +1,30 @@
+<div ng-show="data.isLoading" class="padded-NS">
+    <div layout="row" layout-sm="column" layout-align="space-around">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+</div>
+
+<div ng-hide="data.isLoading" >
+    <div ng-show="isEmpty()">
+        <section class="billboard">
+            <p class="md-headline important">THERE ARE NO PROJECTS IN THE SYSTEM</p>
+
+            <md-button class="md-raised md-primary app-cta" ng-click="requestProjectCreation($event)">New Project</md-button>
+        </section>
+    </div>
+
+    <div ng-show="!isEmpty()" class="projects-list-container">
+        <section>
+            <div layout="row" class="projects-list-toolbar">
+                <h1 class="projects-list-title md-headline important section-head">Projects list</h1>
+                <div class="projects-list-buttons"  layout-align="end" layout="row" flex>
+                    <md-button class="md-primary md-raised" ng-click="requestProjectCreation($event)" aria-label="Create Project">
+                      <i class="fa fa-plus"></i>
+                    </md-button>
+                </div>
+            </div>
+            <app-projects-list data="data.projects"></app-projects-list>
+        </section>
+
+    </div>
+</div>

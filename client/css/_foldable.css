@@ -1,0 +1,17 @@
+[app-foldable] {
+    cursor: pointer;
+}
+
+h1[app-foldable] {
+    margin: 0.1em 0;
+}
+
+.app-foldable-target {
+    padding-bottom: 2em;
+}
+
+.app-foldable-icon {
+    float: right;
+    padding: 0 0.5em;
+}
+

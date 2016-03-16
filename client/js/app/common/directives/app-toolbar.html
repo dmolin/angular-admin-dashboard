@@ -1,0 +1,38 @@
+<md-toolbar class="md-toolbar-tools main-toolbar">
+<div class="logo-wrapper">
+    <div class="md-toolbar-tools">
+        <md-icon class="logo-image fa fa-tachometer"></md-icon>
+        <span class="logo-title md-title">Admin Panel</span>
+    </div>
+</div>
+<div class="page-width">
+    <div class="menu md-toolbar" layout="row">
+        <div class="md-toolbar-tools">
+            <div class="menu-items-wrapper" layout="row" flex>
+                <a ui-sref="projects" ng-class="{active: $state.includes('projects') || $state.includes('project')}" class="menu-item-link">
+                    <md-button class="icon-label-button" aria-label="Projects">
+                        <md-icon class="fa fa-university"></md-icon>
+                        <div class="menu-item-title md-caption">Projects</div>
+                    </md-button>
+                    <!--<img class="menu-item__selected" src="images/menu-selected.png">-->
+                </a>
+
+                <div layout="row" layout-align="end" flex>
+                    <div class="user-info" layout="row">
+                        <img class="menu-item-gravatar" gravatar-src="'{{user.email}}'" gravatar-size="50">
+                        <span class="menu-item-gravatar__email">{{user.name}}</span>
+                    </div>
+                    <div layout="column">
+                        <a href="/logout" class="menu-item-link menu-item-link__logout">
+                            <md-button class="icon-label-button icon__logout" aria-label="logout">
+                                <md-icon class="fa fa-lock"></md-icon>
+                                <span class="menu-item-title md-caption">Log Out</span>
+                            </md-button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</md-toolbar>

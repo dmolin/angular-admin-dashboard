@@ -1,0 +1,167 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-width: 970px;
+    height: 100%;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+form {
+    outline: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sticky {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+md-tooltip {
+    font-size: 0.9em;
+}
+
+#view {
+    margin-top: 101px;
+    height:100%;
+    background-color: #fff;
+    position: relative;
+
+}
+
+.app-cta {
+    padding: 0.5em 1em;
+}
+
+.mgn-NS {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.mgn-E {
+    margin-right: 1em;
+}
+
+.mgn-E3 {
+    margin-right: 3em;
+}
+
+.padded {
+    padding: 1em;
+}
+
+.padded-E {
+    padding-right: 1em;
+}
+
+.padded-W {
+    padding-left: 1em;
+}
+
+.padded-WE {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.padded-NS {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.page-width {
+    width: 840px;
+    margin: 0 auto;
+    }
+    @media screen and (min-width: 1090px) {
+        .page-width {
+            width: 960px;
+        }
+    }
+    /* not sure if I want this
+    @media screen and (min-width: 1440px) {
+        .page-width {
+            width: 1280px;
+        }
+    }
+    */
+
+.logo-wrapper {
+    position: absolute;
+    top: 0;
+    height: 100%;
+}
+.logo-image {
+    font-size: 2em;
+    height: 1em;
+    width: 1.2em;
+}
+
+.logo-title {
+    display: none;
+    }
+
+    @media screen and (min-width: 1350px) {
+        .logo-title {
+            display: block;
+        }
+    }
+
+.notice {
+    font-weight: 700;
+}
+
+.billboard {
+    text-align:center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.important {
+    font-weight: 700;
+}
+
+.section-head {
+    font-family: "Roboto Condensed", "Roboto", sans-serif;
+    text-transform: uppercase;
+}
+
+.md-button {
+    box-shadow: none !important;
+}
+
+.sk-spinner-wave div {
+    background-color: #666;
+}
+
+md-fab-speed-dial .md-fab:hover {
+    background-color: #4A90E2 !important;
+    color: #fff;
+}
+
+.fab-actions {
+    position: absolute;
+}
+
+md-fab-speed-dial .md-fab.md-mini {
+    border: 1px solid #bbb;
+}
+
+
+.fill-select md-select-label {
+    width: 100%;
+}
+
+.fill-select md-select {
+    padding-bottom: 0;
+    padding-top: 0;
+}

@@ -1,0 +1,1 @@
+angular.module('app.projects', ['ui.grid', 'ngFileUpload', 'colorpicker.module']);

@@ -1,0 +1,15 @@
+{
+   "server": {
+        "port": 8000
+    },
+	"mongo": {
+        "connectUrl": "mongodb://localhost:27017/admin"
+    },
+    "s3": {
+        //apiKey,secret,bucket,region are looked up in ENV (SE_APIKEY, S3_SECRET, S3_BUCKET, S3_REGION) if not present here
+        //"apiKey": "your api key",
+        //"secret": "your secret",
+        "bucket": "dm-admin-app",
+        "region": "eu-west-1"
+    }
+}

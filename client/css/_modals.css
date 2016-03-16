@@ -1,0 +1,11 @@
+.md-dialog-container {
+    align-items: flex-start;
+}
+
+md-dialog {
+    top: 100px;
+}
+
+.app-dialog-project-create {
+    max-width: 600px;
+}

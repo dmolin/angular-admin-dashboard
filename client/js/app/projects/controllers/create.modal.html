@@ -1,0 +1,38 @@
+<!-- if we need more dialogs, turn this code into a simple directive with transclusion on the content -->
+<md-dialog class="app-dialog-project-create" aria-label="Project creation dialog" flex="50">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Create a new Project</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="closeDialog()">
+                <md-icon md-svg-src="images/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+
+        <form name="projectForm" ng-submit="confirmDialog()" novalidate>
+            <md-input-container>
+                <label>Project name</label>
+                <input required name="name" ng-model="project.projectName" autofocus>
+            </md-input-container>
+
+            <md-input-container>
+                <label>Client name</label>
+                <input required name="clientName" ng-model="project.clientName">
+            </md-input-container>
+
+            <!-- invisible button to submit, since the main dialog buttons are outside the form tag... -->
+            <button type="submit" style="opacity:0" ng-disabled="projectForm.$invalid"></button>
+        </form>
+
+    </md-dialog-content>
+    <div class="md-actions">
+        <md-button ng-click="confirmDialog()" class="md-primary" ng-disabled="projectForm.$invalid">
+            Create
+        </md-button>
+        <md-button ng-click="closeDialog()" >
+            Close
+        </md-button>
+    </div>
+</md-dialog>
