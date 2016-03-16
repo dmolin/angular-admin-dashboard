@@ -12,7 +12,7 @@ function($scope, ProjectService, $state, $stateParams, $q, $sce, Upload, $timeou
     project: null
   };
 
-  //dropzones
+  //binary attach
   $scope.data.contract = null;
 
   //load the project
@@ -24,6 +24,7 @@ function($scope, ProjectService, $state, $stateParams, $q, $sce, Upload, $timeou
         $scope.data.noResult = true;
       } else {
         $scope.data.project = project;
+        $scope.data.contract = project.contract;
         ctrl.watchForModelChanges();
         ctrl.watchForAttachmentChanges();
       }
@@ -60,8 +61,8 @@ function($scope, ProjectService, $state, $stateParams, $q, $sce, Upload, $timeou
       fileFormDataName: property
     }).success(function (data, status, headers, config) {
       $timeout(function() {
-        $scope[property] = data[property];
-        $scope[property].url += '?tstamp=' + Date.now(); //cachebusted version
+        $scope.data[property] = data[property];
+        //$scope[property].url += '?tstamp=' + Date.now(); //cachebusted version
 
         //update document
         $scope.data.project[property] = data[property];

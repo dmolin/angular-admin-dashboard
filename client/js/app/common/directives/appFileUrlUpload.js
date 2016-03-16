@@ -61,6 +61,8 @@ angular.module('app.common')
 
         scope.popoverTemplate = "common/directives/app-image-upload-popover.html";
         scope.$watch('model', function(nv, ov) {
+          console.log("watch model", nv);
+
           if(nv && nv.length === 0) {
             //re-copy
             scope.model = _.cloneDeep(scope.refModel);
@@ -75,6 +77,7 @@ angular.module('app.common')
             scope.loading = false;
             scope.refModel = null;
           }
+
 
           //after the file has been loaded. nv is no more an array, but an object structure
           if(nv && nv.url) {
