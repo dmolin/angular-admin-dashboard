@@ -76,13 +76,14 @@ function($scope, ProjectService, $state, $stateParams, $q, $sce, Upload, $timeou
 
   $scope.removeAttachment = function($event, property) {
     console.log("removing attachment ", property);
-    $scope.data.project[property] = {}; //I cannot use undefined. If I do so, the field is not sent in the payload
-    ProjectService.update($scope.data.project)
+    ProjectService.deleteAttachment($scope.data.project._id, property)
       .then(function(result) {
-        console.log("document updated");
+        console.log("attachment removed");
+        $scope.data[property] = null;
+        $scope.data.project[property] = {};
       })
       .catch(function error(result) {
-        console.log("error updating document", result);
+        console.log("error removing attachment", result);
       });
   };
 

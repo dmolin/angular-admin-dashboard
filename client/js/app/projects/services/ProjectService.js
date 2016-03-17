@@ -5,6 +5,7 @@ angular.module('app.projects')
     create: _create,
     update: _update,
     delete: _delete,
+    deleteAttachment: _deleteAttachment,
     findById: _findById
   };
 
@@ -88,6 +89,20 @@ angular.module('app.projects')
       deferred.resolve(response);
     })
     .error(function(response) {
+      deferred.reject(response);
+    });
+    return deferred.promise;
+  }
+
+  function _deleteAttachment(projectId, attachmentProperty) {
+    var deferred = $q.defer();
+
+    $http({
+      method: 'DELETE',
+      url: '/api/project/' + projectId + '/attach/' + attachmentProperty
+    }).success(function(response) {
+      deferred.resolve(response);
+    }).error(function(response) {
       deferred.reject(response);
     });
     return deferred.promise;

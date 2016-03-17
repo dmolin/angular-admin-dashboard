@@ -127,6 +127,41 @@ module.exports = function(app) {
 
   });
 
+  app.delete('/api/project/:id/attach/:attachmentProperty', function(req, res) {
+    if(!req.params.id || !req.params.attachmentProperty) {
+      res.status(400).json({status:'failure', reason: 'No Project ID or attachment property name provided'});
+      return;
+    }
+
+    var id = req.params.id,
+        prop = req.params.attachmentProperty;
+
+    Project.findOne({_id: id}, function(err, doc) {
+      if(!doc[prop]) {
+        res.json({status:'success'});
+        return;
+      }
+
+      var unsetObj = {};
+      unsetObj[prop] = "";
+      //update document
+      Project.update({_id: id}, {$unset:unsetObj}, function(err) {
+        if(err) {
+          res.status(500).json({status:'failure', when:'removing attachment for project ' + id, reason: err});
+          return;
+        }
+
+        //remove the document from S3
+        _removeAttachmentPromise(doc[prop])
+          .then(function() {
+            res.json({status:'success'});
+          }).catch(function() {
+            res.status(500).json({status:'failure', when:'removing attachment for project ' + id, reason: err});
+          });
+      });
+
+    });
+  });
 
   //Upload a file attachment to a document
   app.post('/project/:id/upload', function upload(req, res) {
@@ -206,7 +241,7 @@ module.exports = function(app) {
     var deferred = q.defer();
 
     async.parallel([
-      _removeAttachment.bind(doc.backgroundImage),
+      _removeAttachment.bind(doc.contract),
     ], function(err) {
       if(err) {
         deferred.reject(doc);
@@ -231,4 +266,14 @@ module.exports = function(app) {
       .catch(function(err) { callback(err); })
   }
 
+  function _removeAttachmentPromise(attachment) {
+    var deferred = q.defer();
+
+    if(!attachment || !attachment.name) {
+      deferred.reject({status:'failure'});
+      return deferred.promise;;
+    }
+
+    return S3.deleteFile(attachment.name);
+  }
 };
