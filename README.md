@@ -4,6 +4,15 @@ A very basic project that I use as a generic template when building Admin/Backof
 
 ![Image](/assets/edit.png?raw=true)
 
+### Tech Stack ###
+- Grunt
+- Angular 1.3.x
+- Angular UI with Material Design
+- Angular UI.Router
+- NodeJS Express
+- Amazon S3 integration (document storage and retrieval)
+- MongoDB with Mongoose
+
 ### Prerequisites ###
 
 - Node and npm
@@ -13,22 +22,14 @@ A very basic project that I use as a generic template when building Admin/Backof
 ### Setup ###
 
 - install MongoDB
-- <pre>npm install</pre>
-- <pre>grunt</pre>
+- run `npm install`
+- run `grunt` to compile the project and run the unit tests
+- run `npm start` to start the server
 
 The compilation step will generate :
 - the file 'dist/js/templates.js', with the compiled Angular template code.
 - the file 'dist/css/main.css', containing all the combined CSS files.
 - all the assets and compacted JS files will be automatically copied over into 'dist/'
-
-### Compiling/generating the code ###
-
-Issue the following command to compile the code and generate the required artifacts for running the server.
-<pre>
-grunt
-</pre>
-
-This command will lint the files, generate the dependencies and run the Unit Tests.
 
 ### Screenshots ###
 
